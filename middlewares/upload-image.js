@@ -7,8 +7,8 @@ import { fileFilter } from '../utils/index.js';
 
 const s3 = new S3Client({
     credentials: {
-        accessKeyId: process.env.AmazonAccessKeyId,
-        secretAccessKey: process.env.AmazonAccessKey,
+        accessKeyId: process.env.AMAZON_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AMAZON_ACCESS_KEY,
     }, 
     region: 'eu-north-1'
 })
@@ -17,7 +17,7 @@ const uploadS3Image = (bucketName) => {
     return multer({
         storage: multerS3({
             s3: s3,
-            bucket: process.env.AmazonS3Bucket,
+            bucket: process.env.AMAZON_S3_BUCKET,
             acl: 'public-read',
             metadata: (req, file, cb) => {
                 cb(null, {fieldname: file.fieldname})

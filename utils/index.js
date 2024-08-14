@@ -31,7 +31,7 @@ export const generateToken = (user) => {
         userId: user._id.toString(),
         email: user.email,
         role: user.role
-    }, process.env.JWTSecretKey, {
+    }, process.env.JWT_SECRET_KEY, {
         expiresIn: '24h'
     });
 }

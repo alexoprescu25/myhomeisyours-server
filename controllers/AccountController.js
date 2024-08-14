@@ -103,14 +103,14 @@ export const signIn = async (req, res, next) => {
                 email: userDoc.email,
                 role: userDoc.role
             },
-            process.env.JWTSecretKey,
+            process.env.JWT_SECRET_KEY,
             { expiresIn: '1h' }
         ); 
 
         let refreshToken;
         
         if (rememberMe) {
-            refreshToken = jwt.sign({ userId: userDoc._id.toString() }, process.env.JWTSecretKey, { expiresIn: '23h' });
+            refreshToken = jwt.sign({ userId: userDoc._id.toString() }, process.env.JWT_SECRET_KEY, { expiresIn: '23h' });
         }
 
         res.status(200).json({
@@ -183,7 +183,7 @@ export const refreshAuthentication = async (req, res, next) => {
             )
         }
 
-        const decodedToken = jwt.verify(refreshToken, process.env.JWTSecretKey);
+        const decodedToken = jwt.verify(refreshToken, process.env.JWT_SECRET_KEY);
 
         if (!decodedToken) {
             throw new createError(
@@ -206,7 +206,7 @@ export const refreshAuthentication = async (req, res, next) => {
                 role: userDoc.role,
                 type: userDoc.type
             },
-            process.env.JWTSecretKey,
+            process.env.JWT_SECRET_KEY,
             { expiresIn: '2h' }
         ); 
 

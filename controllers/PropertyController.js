@@ -21,8 +21,8 @@ const getRootDir = () => {
 
 const s3 = new S3Client({
     credentials: {
-        accessKeyId: process.env.AmazonAccessKeyId,
-        secretAccessKey: process.env.AmazonAccessKey,
+        accessKeyId: process.env.AMAZON_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AMAZON_ACCESS_KEY,
     }, 
     region: 'eu-north-1'
 });
@@ -172,7 +172,7 @@ export const uploadPropertyImage = async (req, res, next) => {
             const fileName = `my-home-is-yours/${v4()}-medstore.${extension}`;
 
             const uploadParams = {
-                Bucket: process.env.AmazonS3Bucket,
+                Bucket: process.env.AMAZON_S3_BUCKET,
                 Key: fileName, // Unique filename for S3
                 Body: compressedItemBuffer,
                 ContentType: 'image/jpeg'
@@ -183,7 +183,7 @@ export const uploadPropertyImage = async (req, res, next) => {
 
             return {
                 key: uploadParams.Key,
-                url: `https://${process.env.AmazonS3Bucket}.s3.eu-north-1.amazonaws.com/${uploadParams.Key}`,
+                url: `https://${process.env.AMAZON_S3_BUCKET}.s3.eu-north-1.amazonaws.com/${uploadParams.Key}`,
                 name: item.originalname
             };
         });
@@ -323,7 +323,7 @@ export const deleteFloorplan = async (req, res, next) => {
         }
         
         const command = new DeleteObjectCommand({
-            Bucket: process.env.AmazonS3Bucket,
+            Bucket: process.env.AMAZON_S3_BUCKET,
             Key: property.floorplan.key
         });
 
@@ -365,7 +365,7 @@ export const changeFloorplan = async (req, res, next) => {
         }
         
         const command = new DeleteObjectCommand({
-            Bucket: process.env.AmazonS3Bucket,
+            Bucket: process.env.AMAZON_S3_BUCKET,
             Key: property.floorplan.key
         });
 
@@ -553,7 +553,7 @@ export const deleteImage = async (req, res, next) => {
         }
 
         const command = new DeleteObjectCommand({
-            Bucket: process.env.AmazonS3Bucket,
+            Bucket: process.env.AMAZON_S3_BUCKET,
             Key: property.images[0].key
         });
 
@@ -654,7 +654,7 @@ export const deleteProperty = async (req, res, next) => {
         if (property.images && property.images.length > 0) {
             property.images.forEach((item) => {
                 const command = new DeleteObjectCommand({
-                    Bucket: process.env.AmazonS3Bucket,
+                    Bucket: process.env.AMAZON_S3_BUCKET,
                     Key: item.key
                 });
         

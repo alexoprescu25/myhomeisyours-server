@@ -2,11 +2,11 @@ import createError from 'http-errors';
 import { handleError } from '../utils/index.js';
 import fetch from 'node-fetch';
 
-const apiKey = process.env['Tom:ApiKey'];
-const adminKey = process.env['Tom:AdminKey'];
-const versionNumber = process.env['Tom:VersionNumber'];
-const baseUrl = process.env['Tom:BaseUrl'];
-const ext = process.env['Tom:Ext'];
+const apiKey = process.env['TOM_API_KEY'];
+const adminKey = process.env['TOM_ADMIN_KEY'];
+const versionNumber = process.env['TOM_VERSION_NUMBER'];
+const baseUrl = process.env['TOM_BASE_URL'];
+const ext = process.env['TOM_EXT'];
 
 export const handleMap = async (req, res, next) => {
     const { query } = req.body;

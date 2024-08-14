@@ -13,7 +13,7 @@ export const isAuth = (req, res, next) => {
             )
         }
 
-        const decodedToken = jwt.verify(token, process.env.JWTSecretKey);
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
         if (!decodedToken) {
             throw new createError(
