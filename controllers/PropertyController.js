@@ -24,7 +24,7 @@ const s3 = new S3Client({
         accessKeyId: process.env.AmazonAccessKeyId,
         secretAccessKey: process.env.AmazonAccessKey,
     }, 
-    region: process.env.AmazonRegion
+    region: 'eu-north-1'
 });
 
 // *************************************** CREATE PROPERTY ******************************************
