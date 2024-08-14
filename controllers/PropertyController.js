@@ -183,7 +183,7 @@ export const uploadPropertyImage = async (req, res, next) => {
 
             return {
                 key: uploadParams.Key,
-                url: `https://${process.env.AmazonS3Bucket}.s3.${process.env.AmazonRegion}.amazonaws.com/${uploadParams.Key}`,
+                url: `https://${process.env.AmazonS3Bucket}.s3.eu-north-1.amazonaws.com/${uploadParams.Key}`,
                 name: item.originalname
             };
         });
