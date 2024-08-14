@@ -21,7 +21,7 @@ const app = express();
 app.use(helmet());
 
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://myhomeisyours.netlify.app', 'https://mhiy-7110400cda28.herokuapp.com'], // Frontend origin
+    origin: ['http://localhost:3000', 'https://myhomeisyours.netlify.app', 'https://mhiy-7110400cda28.herokuapp.com', 'http://16.171.199.182:3000'], // Frontend origin
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true, // Allow cookies to be sent with requests
