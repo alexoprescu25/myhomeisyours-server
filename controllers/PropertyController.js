@@ -320,7 +320,7 @@ export const deleteFloorplan = async (req, res, next) => {
                 'Floorplan not found',
                 { expose: true }
             );
-        }
+        } 
         
         const command = new DeleteObjectCommand({
             Bucket: process.env.AMAZON_S3_BUCKET,
