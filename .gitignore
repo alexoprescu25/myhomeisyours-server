@@ -1,4 +1,8 @@
 node_modules
 nodemon.json
+<<<<<<< HEAD
 Procfile
 .env
+=======
+Procfile
+>>>>>>> 3331ae7ab6c86cbe9e3eabab29c52509d8c57b24

@@ -53,7 +53,14 @@ app.use('/guest', GuestRoutes);
 
 const PORT = process.env.PORT || 8080;
 
+<<<<<<< HEAD
 mongoose.connect(MONGO_URI)
+=======
+mongoose.connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+>>>>>>> 3331ae7ab6c86cbe9e3eabab29c52509d8c57b24
     .then(() => {
         const server = app.listen(PORT, () => { rqListener(PORT) });
     })
