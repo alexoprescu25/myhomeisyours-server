@@ -325,7 +325,7 @@ export const deleteFloorplan = async (req, res, next) => {
         const command = new DeleteObjectCommand({
             Bucket: process.env.AMAZON_S3_BUCKET,
             Key: property.floorplan.key
-        });
+        }); 
 
         const awsResponse = await s3.send(command);
         
